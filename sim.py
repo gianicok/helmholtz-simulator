@@ -43,7 +43,7 @@ R = 0.35; # R, Radius of single coil [m]
 copper = 2*3.14159*R*N*2 # per helmholtz pair
 print("Per Helmholtz Pair, ",copper)
 print("Per Helmholtz Cage, ",3*copper)
-w
+
 # main ------------------------------------------------------------
 
 space = numpy.linspace(-R/2,+R/2,n)
