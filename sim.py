@@ -57,9 +57,9 @@ n = 500              # Number of points in sim
 I = 2;               # I, Current [A]
 mu_0 = 1.25663706e-6 # μ_0, Permeability of Free Space [m*kg*s^-2*A^-2] 
 
-x = hh_pair(40,0.35,'x')
-y = hh_pair(42,0.37,'y')
-z = hh_pair(44,0.39,'z')
+x = hh_pair(32,0.28,'x')
+y = hh_pair(34,0.30,'y')
+z = hh_pair(36,0.32,'z')
 
 pairs = [x,y,z]
 
@@ -73,12 +73,11 @@ x.flux_calc()
 y.flux_calc()
 z.flux_calc()
 
-# same plot
 fig, (ax) = plt.subplots(1)
 fig.suptitle('Helmholtz Pair Characteristics')
 
-ax.add_artist(AnnotationBbox(OffsetImage(coils, zoom = 1), (min(x.space), min(x.flux)+(max(x.flux)-(min(x.flux)))/3), frameon = False))
-ax.add_artist(AnnotationBbox(OffsetImage(coils, zoom = 1), (max(x.space), min(x.flux)+(max(x.flux)-(min(x.flux)))/3), frameon = False))
+#ax.add_artist(AnnotationBbox(OffsetImage(coils, zoom = 1), (min(x.space), min(x.flux)+(max(x.flux)-(min(x.flux)))/3), frameon = False))
+#ax.add_artist(AnnotationBbox(OffsetImage(coils, zoom = 1), (max(x.space), min(x.flux)+(max(x.flux)-(min(x.flux)))/3), frameon = False))
 
 ax.set_ylabel("Magnetic Field (Gauss)")
 ax.set_xlabel("Position Along Helmholtz Pair (m)")
@@ -92,17 +91,4 @@ uniform = " x="+str((round(x.elen_x[-1]-x.elen_x[0],2))*100)+" cm, y="+str((roun
 
 ax.legend()
 ax.set_title("uniform regions (black): "+uniform)
-#fig.text(0.1,0.95,uniform,fontsize = 14, bbox = dict(facecolor = 'red', alpha = 0.5))
 plt.show()
-
-'''
-plt.title('Magnetic Flux Density in Helmholtz Pair')
-plt.ylabel('Magnetic Flux Density, B [Gauss]')
-plt.plot(space,flux_density,color='red')
-plt.plot(e_x,e_y,color='black')
-
-plt.gcf().text(0.1,0.95,
-               'I = '+str(I)+' A, N = '+str(N)+' turns, R = '+str(R)+' m, l_e ='+str((round(e_x[-1]-e_x[0],2))*100)+' cm',
-                fontsize = 14, bbox = dict(facecolor = 'red', alpha = 0.5))
-
-plt.show()'''
